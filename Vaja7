@@ -1,1 +1,118 @@
+# OSPR2 – vaje/praksa
+# Vaja 07 - vaja iz terk (tuples)
+#
+# VSE NALOGE REŠUJTE S FUNKCIJAMI, KO ODDAJATE KODO NAJ BODO ZAKOMENTIRANA NAVODILA IN KLICI VAŠIH FUNKCIJ (FUNKCIJE SAME NAJ NE BODO ZAKOMENTIRANE)
+#
+#
+# 1. naloga
+# Napišite program, ki v podani terki recimo
+# t1 = ('Jabolko', [10, 20, 30], (5, 15, 25))
+# dostopa/izpiše recimo vrednost 20. Poizkusite dostopati še do kakšnih drugih vrednosti.
 
+# def poisci(terka, iskani_element):
+#     for i in terka:
+#         if i == iskani_element:
+#             return "najdeno"
+#         elif isinstance(i, (list, tuple)):
+#             poisci(i, 20)
+#             if i == iskani_element:
+#                 return "najdeno"
+#
+#
+# print(poisci(('Jabolko', [10, 20, 30], (5, 15, 25)), 20))
+
+
+def poisci(terka, iskani_element):
+    for i in terka:
+        if i == iskani_element:
+            return "najdeno"
+        elif isinstance(i, (list, tuple)):
+            rezultat = poisci(i, iskani_element)
+            if rezultat == "najdeno":
+                return rezultat
+    return "ni najdeno"
+
+#print(poisci(('Jabolko', [10, 20, 30], (5, 15, 25)), 20))
+
+
+
+# 2. naloga
+# Napišite funkcijo menjava_prvega_zadnjega(terka), ki zamenja prvi in zadnji element terke in vrne novo terko.
+# Primer:
+# menjava_prvega_zadnjega((1, 2, 3, 4, 5)) vrne (5, 2, 3, 4, 1)
+
+def menjava_prvega_zadnjega(terka):
+    sez = list(terka)
+    sez[0], sez[-1] = sez[-1], sez[0]
+    return tuple(sez)
+
+#print(menjava_prvega_zadnjega((1, 2, 3, 4, 5)))
+
+
+# 3. naloga
+# Napišite funkcijo zdruzi(terka1, terka2), ki sprejme dve terki in vrne novo terko, kjer so elementi združeni iz obeh terk.
+# Primer:
+# zdruzi((1, 2, 3), (4, 5, 6)) vrne (1, 2, 3, 4, 5, 6)
+
+
+
+# 4. naloga
+# Uredite terte terk glede na drugi element naraščajoče.
+# Primer:
+# t1 = (('a', 23), ('b', 37), ('c', 11), ('d', 29)) → (('c', 11), ('a', 23), ('d', 29), ('b', 37))
+
+
+
+# 5. naloga
+# Napišite funkcijo najvecji_najmanjsi(terka), ki vrne največji in najmanjši element v podani terki.
+# Primer:
+# najvecji_najmanjsi((4, 7, 1, 9, 2)) vrne (9, 1)
+
+
+
+# 6. naloga
+# Napišite funkcijo najdaljsa_skupna_terka(terka1, terka2), ki vrne najdaljso skupno zaporedje elementov, ki se pojavi v obeh terkah.
+# Primer:
+# Najdaljsa_skupna_terka((1, 2, 3, 4), (2, 3, 4, 5)) vrne (2, 3, 4)
+
+
+
+# 7. naloga
+# Napišite funkcijo filtriraj_terke(seznam terk, prag), ki prejme seznam terk in številski prag ter vrne samo tiste terke, kjer je vsota vseh elementov v terki večja od podanega praga.
+# Primer:
+# filtriraj_terke([(1, 2, 3), (4, 5, 6), (1, 1, 1)], 10) vrne [(4, 5, 6)]
+
+
+
+# 8. naloga
+# Napišite funkcijo pari_z_razliko(seznam, razlika), ki vrne vse pare iz seznama, kjer je razlika med dvema elementoma enaka podani razliki.
+# Primer:
+# pari_z_razliko([1, 5, 3, 4, 2], 2) vrne [(1, 3), (3, 5), (2, 4)]
+
+
+
+# 9. naloga
+# Napišite funkcijo ustvari_terke(seznam1, seznam2), ki iz dveh seznamov ustvari seznam terk, kjer je vsak element iz prvega seznama združen z ustreznim elementom iz drugega seznama.
+# Primer:
+# ustvari_terke([1, 2, 3], ['a', 'b', 'c']) vrne [(1, 'a'), (2, 'b'), (3, 'c')]
+
+
+
+# 10. naloga
+# Napišite funkcijo ustvari_enomestno_terko(niz), ki prejme niz in vrne terko enomestnih šteil, ki se nahajajo v podanem nizu.
+# Primer:
+# ustvari_enomestno_terko('abc123xyz456') vrne (1, 2, 3, 4, 5, 6)
+
+
+
+# 11. naloga
+# Napišite funkcijo najpogostejse_terke(seznam terk), ki poušče terko, ki se najpogosteje pojavi v podanem seznamu terk.
+# Primer:
+# najpogostejse_terke([(1, 2), (2, 3), (1, 2), (2, 3), (1, 2)]) vrne (1, 2)
+
+
+
+# 12. naloga
+# Napišite funkcijo kartezicni_produkt(*terke), ki prejme poljubno število terk in vrne njihov kartezični produkt v obliki seznama terk.
+# Primer:
+# kartezicni_produkt((1, 2), (3, 4)) vrne [(1, 3), (1, 4), (2, 3), (2, 4)]
